@@ -7,7 +7,6 @@ Implements:
 - NL Algorithm 1: M3 (Multi-scale Momentum Muon) optimizer
 """
 
-
 import torch
 import torch.nn as nn
 
