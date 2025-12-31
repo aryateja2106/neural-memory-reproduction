@@ -12,7 +12,6 @@ Implements core equations from the MIRAS paper:
 Paper: MIRAS (arXiv:2504.13173)
 """
 
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

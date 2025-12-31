@@ -1,0 +1,84 @@
+# Research Reproduction Skill .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.uv/
+
+# UV
+.python-version
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Type checking
+.mypy_cache/
+.pyright/
+.ty/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Project-specific
+papers/*.pdf
+papers/*/original.pdf
+checkpoints/
+results/
+logs/
+wandb/
+outputs/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+
+# Archives
+*.tar.gz
+*.zip
+colab_package.tar.gz
+
+# Secrets (never commit)
+.env
+.env.local
+*.key
+credentials.json
+oauth_creds.json
