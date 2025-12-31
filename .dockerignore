@@ -1,10 +1,34 @@
 # =============================================================================
-# Neural Memory Reproduction - .gitignore
-# Comprehensive Python/ML project ignore file
+# Neural Memory Reproduction - .dockerignore
+# Files to exclude from Docker build context
+# Reduces build time and image size
 # =============================================================================
 
 # -----------------------------------------------------------------------------
-# Python
+# Git
+# -----------------------------------------------------------------------------
+.git
+.gitignore
+.gitattributes
+
+# -----------------------------------------------------------------------------
+# Documentation (not needed in image)
+# -----------------------------------------------------------------------------
+*.md
+!README.md
+docs/
+LICENSE
+
+# -----------------------------------------------------------------------------
+# Virtual Environments
+# -----------------------------------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+
+# -----------------------------------------------------------------------------
+# Python Cache
 # -----------------------------------------------------------------------------
 __pycache__/
 *.py[cod]
@@ -12,40 +36,13 @@ __pycache__/
 *.so
 .Python
 build/
-develop-eggs/
 dist/
-downloads/
 eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
 *.egg-info/
-.installed.cfg
 *.egg
-MANIFEST
 
 # -----------------------------------------------------------------------------
-# Virtual Environments
-# -----------------------------------------------------------------------------
-.venv/
-venv/
-ENV/
-env/
-env.bak/
-venv.bak/
-
-# -----------------------------------------------------------------------------
-# UV Package Manager
-# -----------------------------------------------------------------------------
-uv.lock
-
-# -----------------------------------------------------------------------------
-# Testing
+# Testing & Coverage (rebuilt in container)
 # -----------------------------------------------------------------------------
 .pytest_cache/
 .coverage
@@ -53,95 +50,66 @@ uv.lock
 htmlcov/
 .tox/
 .nox/
-coverage.xml
-*.cover
-.hypothesis/
 
 # -----------------------------------------------------------------------------
-# Ruff / Linting
+# Linting Cache
 # -----------------------------------------------------------------------------
 .ruff_cache/
 .mypy_cache/
-.dmypy.json
-dmypy.json
 
 # -----------------------------------------------------------------------------
-# IDEs and Editors
+# IDE / Editor
 # -----------------------------------------------------------------------------
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-.spyderproject
-.spyproject
-.ropeproject
-*.sublime-workspace
-*.sublime-project
 
 # -----------------------------------------------------------------------------
-# Machine Learning / Deep Learning
+# OS Files
 # -----------------------------------------------------------------------------
-# Model checkpoints
+.DS_Store
+Thumbs.db
+
+# -----------------------------------------------------------------------------
+# ML Artifacts (too large, mount as volumes)
+# -----------------------------------------------------------------------------
 checkpoints/
 saved_models/
 *.pth
 *.pt
 *.ckpt
 *.safetensors
-*.h5
-*.hdf5
-*.pb
-*.onnx
-
-# Training logs
-logs/
-runs/
-tensorboard/
-wandb/
-mlruns/
-
-# Datasets (too large for git)
 data/
 datasets/
+wandb/
+mlruns/
+logs/
 
 # -----------------------------------------------------------------------------
-# Jupyter Notebooks
+# Large Files
 # -----------------------------------------------------------------------------
-.ipynb_checkpoints/
-**/.ipynb_checkpoints/
+*.pdf
 
 # -----------------------------------------------------------------------------
-# Operating System
+# Docker
 # -----------------------------------------------------------------------------
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-desktop.ini
+Dockerfile*
+docker-compose*.yml
+.docker/
+
+# -----------------------------------------------------------------------------
+# CI/CD
+# -----------------------------------------------------------------------------
+.github/
 
 # -----------------------------------------------------------------------------
 # Project Specific
 # -----------------------------------------------------------------------------
-# Large PDF files
-*.pdf
-
-# Temporary files
+*.context.md
+IMPLEMENTATION_PLAN.md
+EXPERIMENT_REPORT.md
 tmp/
 temp/
-*.tmp
-*.bak
 scratchpad/
-
-# Experiment outputs
-experiments/
-outputs/
-results/
-
-# Environment files with secrets
-.env
-.env.*
-!.env.example

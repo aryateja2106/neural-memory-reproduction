@@ -1,0 +1,133 @@
+# =============================================================================
+# Neural Memory Reproduction - Docker Compose
+# Easy setup for development and testing
+# =============================================================================
+#
+# Usage:
+#   Run tests:         docker compose up test
+#   Development:       docker compose up dev
+#   Jupyter notebook:  docker compose up jupyter
+#   All services:      docker compose up
+#
+# =============================================================================
+
+version: '3.9'
+
+services:
+  # ---------------------------------------------------------------------------
+  # Test Runner
+  # Runs the full test suite with coverage
+  # ---------------------------------------------------------------------------
+  test:
+    build:
+      context: .
+      target: runtime
+    container_name: neural-memory-test
+    command: >
+      sh -c "
+        echo '=== Running Tests ===' &&
+        pytest tests/ -v --tb=short &&
+        echo '' &&
+        echo '=== Coverage Report ===' &&
+        pytest tests/ --cov=src --cov-report=term-missing
+      "
+    volumes:
+      # Mount source for live updates during development
+      - ./src:/app/src:ro
+      - ./tests:/app/tests:ro
+    environment:
+      - PYTHONPATH=/app
+
+  # ---------------------------------------------------------------------------
+  # Development Environment
+  # Interactive shell with all development tools
+  # ---------------------------------------------------------------------------
+  dev:
+    build:
+      context: .
+      target: dev
+    container_name: neural-memory-dev
+    command: bash
+    stdin_open: true
+    tty: true
+    volumes:
+      # Mount everything for full development
+      - .:/app
+      # Use named volume for venv to persist installations
+      - venv:/app/.venv
+    environment:
+      - PYTHONPATH=/app
+    working_dir: /app
+
+  # ---------------------------------------------------------------------------
+  # Jupyter Notebook Server
+  # Interactive exploration and experimentation
+  # ---------------------------------------------------------------------------
+  jupyter:
+    build:
+      context: .
+      target: dev
+    container_name: neural-memory-jupyter
+    command: >
+      jupyter notebook
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --allow-root
+      --NotebookApp.token=''
+      --NotebookApp.password=''
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+      - venv:/app/.venv
+    environment:
+      - PYTHONPATH=/app
+    working_dir: /app
+
+  # ---------------------------------------------------------------------------
+  # Linting and Formatting
+  # Run code quality checks
+  # ---------------------------------------------------------------------------
+  lint:
+    build:
+      context: .
+      target: runtime
+    container_name: neural-memory-lint
+    command: >
+      sh -c "
+        echo '=== Checking Code Format ===' &&
+        ruff format --check src/ tests/ &&
+        echo '' &&
+        echo '=== Running Linter ===' &&
+        ruff check src/ tests/
+      "
+    volumes:
+      - ./src:/app/src:ro
+      - ./tests:/app/tests:ro
+
+  # ---------------------------------------------------------------------------
+  # Format Code
+  # Auto-fix formatting issues
+  # ---------------------------------------------------------------------------
+  format:
+    build:
+      context: .
+      target: runtime
+    container_name: neural-memory-format
+    command: >
+      sh -c "
+        echo '=== Formatting Code ===' &&
+        ruff format src/ tests/ &&
+        echo '' &&
+        echo '=== Fixing Lint Issues ===' &&
+        ruff check src/ tests/ --fix
+      "
+    volumes:
+      - ./src:/app/src
+      - ./tests:/app/tests
+
+# Named volumes for persistence
+volumes:
+  venv:
+    driver: local
