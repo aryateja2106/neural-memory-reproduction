@@ -7,6 +7,8 @@
 
 **Complete PyTorch reproduction of three interconnected Google Research papers on neural memory systems.**
 
+> **Why This Matters**: Continual Learning is the next frontier in AI. These papers enable **test-time memorization** - AI that learns and adapts in real-time without retraining. Read more: [Google Research Blog](https://research.google/blog/titans-miras-helping-ai-have-long-term-memory/)
+
 This repository provides verified implementations of core equations from:
 - **TITANS**: Learning to Memorize at Test Time
 - **MIRAS**: It's All Connected - Test-Time Memorization, Attentional Bias & Retention
@@ -168,8 +170,11 @@ docker compose up jupyter
 # Run tests
 docker compose up test
 
+# Run tests with coverage report
+docker compose up coverage
+
 # Development environment (interactive shell)
-docker compose up dev
+docker compose run --rm dev bash
 
 # Start Jupyter notebook server
 docker compose up jupyter
@@ -243,7 +248,7 @@ neural-memory-reproduction/
 
 ### NL: Nested Learning
 - **Authors**: Ali Behrouz, Meisam Razaviyayn, Peilin Zhong, Vahab Mirrokni
-- **Conference**: NeurIPS 2025
+- **Link**: [PDF](https://abehrouz.github.io/files/NL.pdf)
 - **Key Contribution**: M3 optimizer and nested learning architecture
 
 ---
@@ -344,7 +349,7 @@ If you find this reproduction helpful, please star this repository and cite:
 
 - Original paper authors at Google Research
 - PyTorch team for the deep learning framework
-- Claude Code for assistance in reproduction
+- **Claude Code with Opus 4.5** for AI-assisted reproduction using the research-reproduction skill
 
 ---
 

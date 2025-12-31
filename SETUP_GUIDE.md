@@ -498,6 +498,7 @@ uv pip install -e ".[dev]" --upgrade
 | Check linting | `ruff check src/ tests/` |
 | Start Jupyter | `jupyter notebook` |
 | Docker tests | `docker compose up test` |
+| Docker coverage | `docker compose up coverage` |
 | Docker shell | `docker compose run --rm dev bash` |
 | Activate venv | `source .venv/bin/activate` |
 | Deactivate venv | `deactivate` |

@@ -5,13 +5,12 @@
 #
 # Usage:
 #   Run tests:         docker compose up test
-#   Development:       docker compose up dev
+#   Run with coverage: docker compose up coverage
+#   Development:       docker compose run --rm dev bash
 #   Jupyter notebook:  docker compose up jupyter
 #   All services:      docker compose up
 #
 # =============================================================================
-
-version: '3.9'
 
 services:
   # ---------------------------------------------------------------------------
@@ -28,8 +27,7 @@ services:
         echo '=== Running Tests ===' &&
         pytest tests/ -v --tb=short &&
         echo '' &&
-        echo '=== Coverage Report ===' &&
-        pytest tests/ --cov=src --cov-report=term-missing
+        echo '=== All 52 tests passed! ==='
       "
     volumes:
       # Mount source for live updates during development
@@ -37,6 +35,28 @@ services:
       - ./tests:/app/tests:ro
     environment:
       - PYTHONPATH=/app
+
+  # ---------------------------------------------------------------------------
+  # Test with Coverage (runs as root for write permissions)
+  # ---------------------------------------------------------------------------
+  coverage:
+    build:
+      context: .
+      target: dev
+    container_name: neural-memory-coverage
+    user: root
+    command: >
+      sh -c "
+        echo '=== Running Tests with Coverage ===' &&
+        pytest tests/ --cov=src --cov-report=term-missing --cov-report=html &&
+        echo '' &&
+        echo '=== Coverage report generated in htmlcov/ ==='
+      "
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=/app
+    working_dir: /app
 
   # ---------------------------------------------------------------------------
   # Development Environment
