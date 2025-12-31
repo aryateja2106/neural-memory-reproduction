@@ -1,9 +1,9 @@
 # Neural Memory Reproduction: TITANS + MIRAS + NL
 
-[![CI](https://github.com/AryaTejaRudraraju/neural-memory-reproduction/actions/workflows/ci.yml/badge.svg)](https://github.com/AryaTejaRudraraju/neural-memory-reproduction/actions/workflows/ci.yml)
+[![CI](https://github.com/aryateja2106/neural-memory-reproduction/actions/workflows/ci.yml/badge.svg)](https://github.com/aryateja2106/neural-memory-reproduction/actions/workflows/ci.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Code Coverage](https://img.shields.io/badge/coverage-87%25-green.svg)](https://github.com/AryaTejaRudraraju/neural-memory-reproduction)
+[![Code Coverage](https://img.shields.io/badge/coverage-87%25-green.svg)](https://github.com/aryateja2106/neural-memory-reproduction)
 
 **Complete PyTorch reproduction of three interconnected Google Research papers on neural memory systems.**
 
@@ -47,7 +47,7 @@ This repository provides verified implementations of core equations from:
 
 ```bash
 # Clone the repository
-git clone https://github.com/AryaTejaRudraraju/neural-memory-reproduction.git
+git clone https://github.com/aryateja2106/neural-memory-reproduction.git
 cd neural-memory-reproduction
 
 # Install UV if you don't have it
@@ -66,7 +66,7 @@ pytest tests/ -v
 
 ```bash
 # Clone the repository
-git clone https://github.com/AryaTejaRudraraju/neural-memory-reproduction.git
+git clone https://github.com/aryateja2106/neural-memory-reproduction.git
 cd neural-memory-reproduction
 
 # Run tests in Docker
@@ -80,7 +80,7 @@ docker run --rm neural-memory
 ### Option 3: Using pip
 
 ```bash
-git clone https://github.com/AryaTejaRudraraju/neural-memory-reproduction.git
+git clone https://github.com/aryateja2106/neural-memory-reproduction.git
 cd neural-memory-reproduction
 python -m venv .venv
 source .venv/bin/activate
@@ -334,7 +334,7 @@ If you find this reproduction helpful, please star this repository and cite:
   title = {Neural Memory Reproduction: TITANS + MIRAS + NL},
   year = {2025},
   publisher = {GitHub},
-  url = {https://github.com/AryaTejaRudraraju/neural-memory-reproduction}
+  url = {https://github.com/aryateja2106/neural-memory-reproduction}
 }
 ```
 
@@ -348,4 +348,4 @@ If you find this reproduction helpful, please star this repository and cite:
 
 ---
 
-**Made with research by [Arya Teja Rudraraju](https://github.com/AryaTejaRudraraju)**
+**Made with research by [Arya Teja Rudraraju](https://github.com/aryateja2106)**

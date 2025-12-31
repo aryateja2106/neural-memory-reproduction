@@ -117,7 +117,7 @@ You should see something like: `Docker version 24.0.0`
 cd ~/Desktop
 
 # Download the code
-git clone https://github.com/AryaTejaRudraraju/neural-memory-reproduction.git
+git clone https://github.com/aryateja2106/neural-memory-reproduction.git
 
 # Go into the folder
 cd neural-memory-reproduction
@@ -207,7 +207,7 @@ pip install uv
 cd ~/Desktop
 
 # Download the code
-git clone https://github.com/AryaTejaRudraraju/neural-memory-reproduction.git
+git clone https://github.com/aryateja2106/neural-memory-reproduction.git
 
 # Go into the folder
 cd neural-memory-reproduction
@@ -255,7 +255,7 @@ If UV doesn't work for you, use the traditional pip method.
 
 ```bash
 cd ~/Desktop
-git clone https://github.com/AryaTejaRudraraju/neural-memory-reproduction.git
+git clone https://github.com/aryateja2106/neural-memory-reproduction.git
 cd neural-memory-reproduction
 ```
 
@@ -460,7 +460,7 @@ docker system prune -a
 
 **A:** Yes! Create a new notebook and run:
 ```python
-!git clone https://github.com/AryaTejaRudraraju/neural-memory-reproduction.git
+!git clone https://github.com/aryateja2106/neural-memory-reproduction.git
 %cd neural-memory-reproduction
 !pip install -e ".[dev]"
 !pytest tests/ -v
@@ -484,7 +484,7 @@ uv pip install -e ".[dev]" --upgrade
 
 ### Q: Where can I get help?
 
-**A:** Open an issue at: https://github.com/AryaTejaRudraraju/neural-memory-reproduction/issues
+**A:** Open an issue at: https://github.com/aryateja2106/neural-memory-reproduction/issues
 
 ---
 

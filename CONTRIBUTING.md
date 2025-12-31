@@ -39,7 +39,7 @@ This project follows a simple code of conduct:
    ```
 3. Add upstream remote:
    ```bash
-   git remote add upstream https://github.com/AryaTejaRudraraju/neural-memory-reproduction.git
+   git remote add upstream https://github.com/aryateja2106/neural-memory-reproduction.git
    ```
 
 ## Development Setup
@@ -334,7 +334,7 @@ make html
 
 - Open an issue for bugs or feature requests
 - Use discussions for questions
-- Tag @AryaTejaRudraraju for urgent matters
+- Tag @aryateja2106 for urgent matters
 
 ---
 

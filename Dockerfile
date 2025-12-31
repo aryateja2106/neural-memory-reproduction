@@ -159,6 +159,6 @@ CMD ["bash"]
 LABEL org.opencontainers.image.title="Neural Memory Reproduction" \
       org.opencontainers.image.description="Reproduction of TITANS, MIRAS, and NL neural memory papers" \
       org.opencontainers.image.authors="Arya Teja Rudraraju" \
-      org.opencontainers.image.source="https://github.com/AryaTejaRudraraju/neural-memory-reproduction" \
+      org.opencontainers.image.source="https://github.com/aryateja2106/neural-memory-reproduction" \
       org.opencontainers.image.licenses="MIT" \
       org.opencontainers.image.version="1.0.0"
